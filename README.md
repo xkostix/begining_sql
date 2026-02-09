@@ -54,20 +54,39 @@ mysql -u sys_temp -ppassword < ~/sqlbeg/sakila-db/sakila-data.sql
 
 mysql -u sys_temp -ppassword
 USE sakila;
-SHOW TABLES;
+SHOW FULL TABLES; # full - чтобы понять, где таблици, а где view
 ```
 
 ---
 
 ### Задание 2
 
-
+Составьте таблицу, используя любой текстовый редактор или Excel, в которой должно быть два столбца: в первом должны быть названия таблиц восстановленной базы, во втором названия первичных ключей этих таблиц.
 
 ### Решение
 
-
-
-![Screen Script](./img)
-
-Скрипт:
-[Скрипт](./files/backup-home.sh)
+```
+| actor                      | BASE TABLE | actor_id
+| actor_info                 | VIEW       |
+| address                    | BASE TABLE | address_id
+| category                   | BASE TABLE | category_id
+| city                       | BASE TABLE | city_id
+| country                    | BASE TABLE | country_id
+| customer                   | BASE TABLE | customer_id
+| customer_list              | VIEW       |
+| film                       | BASE TABLE | film_id
+| film_actor                 | BASE TABLE | `actor_id`,`film_id`
+| film_category              | BASE TABLE | `film_id`,`category_id`
+| film_list                  | VIEW       |
+| film_text                  | BASE TABLE | film_id
+| inventory                  | BASE TABLE | inventory_id
+| language                   | BASE TABLE | language_id
+| nicer_but_slower_film_list | VIEW       |
+| payment                    | BASE TABLE | payment_id
+| rental                     | BASE TABLE | rental_id
+| sales_by_film_category     | VIEW       |
+| sales_by_store             | VIEW       |
+| staff                      | BASE TABLE | staff_id
+| staff_list                 | VIEW       |
+| store                      | BASE TABLE | store_id
+```
